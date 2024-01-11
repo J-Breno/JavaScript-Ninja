@@ -1,0 +1,25 @@
+JavaScript - Ninja
+
+Aula 1
+
+variável é um local na memória que você aloca informações
+
+O JavaScript é uma linguagem dinâmica ela não precisa ser inicializada com um tipo para poder ser atribuida, o que faz que uma variável em JavaScript possa receber varios tipos de dados diferentes na mesma variável;
+
+Os tipos de variáveis são: Number, String, boolean, object, array etc
+
+null significa que não tem nenhum valor
+undefiend é a ausência de valor
+
+propriedades em um objeto são as caracteristicas daquele objeto
+um método seria uma ação que esse objeto pode fazer
+
+operadores aritiméticos é o mesmo da matemática
+
+função é um bloco de código em JavaScript que é usada para executar uma determinada ação, dica sempre faça funções pequenas e práticas e objetivas
+
+a função cria escopo de variável, escopo de bloco, se uma variável for criada dentro de uma função você não pode acessa-la
+
+funções podem retornar valores com return
+
+tudo depois do return é ignorado
