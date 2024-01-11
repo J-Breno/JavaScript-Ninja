@@ -11,7 +11,7 @@ console.log(soma);
 console.log('=======')
 
 // Atribua à variável `soma` todo o valor dela, somando 1, usando o operador de soma abreviado.
-soma = ++soma;
+soma = ++soma; 
 console.log(soma);
 console.log('----------')
 

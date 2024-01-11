@@ -1,0 +1,3 @@
+Operadores lógicos = &&(AND); !(NOT); ||(OR);
+
+JavaScript é case Sensitive, ou seja, se eu declarar uma variável pessOa e depois tentar chamar pessoa, não vai da certo
