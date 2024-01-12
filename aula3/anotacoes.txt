@@ -1,0 +1,22 @@
+para uma variável ser null, eu preciso falar que a variável é null
+var i = null;
+
+já quando não é passado nada para variável ela é undefiend
+var j;
+
+//Tipos primitivos
+Number - int,double,float,short,byte,long
+String - string, char
+boolean - true, false
+null e undefiend
+
+// Tipos Objetos
+
+tudo o que não for tipo primitivo é tipo objeto
+
+objeto é um conjunto de propriedades
+
+objetos recebem propriedades e métodos
+
+propriedades são caracteristicas do objeto
+métodos são uma ação que o objeto faz 
