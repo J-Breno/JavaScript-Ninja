@@ -14,15 +14,24 @@ As propriedades e tipos de valores para cada propriedade desse objeto devem ser:
 - `caminhouQuantosMetros` - Number - recebe "zero" por padrão
 */
 var pessoa = {
-    nome: 'João', sobrenome: 'Breno', sexo:'Masculino', idade: 19, altura: 1.75, peso: 78, andando: false, caminhouQuantosMetros:0
-}
+  nome: "João",
+  sobrenome: "Breno",
+  sexo: "Masculino",
+  idade: 19,
+  altura: 1.75,
+  peso: 78,
+  andando: false,
+  caminhouQuantosMetros: 0,
+};
 
 /*
 Adicione um método ao objeto `pessoa` chamado `fazerAniversario`. O método deve
 alterar o valor da propriedade `idade` dessa pessoa, somando `1` a cada vez que
 for chamado.
 */
-pessoa.fazerAniversario = () => {pessoa.idade++}
+pessoa.fazerAniversario = () => {
+  pessoa.idade++;
+};
 
 /*
 Adicione um método ao objeto `pessoa` chamado `andar`, que terá as seguintes
@@ -34,37 +43,46 @@ valor dessa propriedade a quantidade passada por parâmetro;
 - Ele deverá modificar o valor da propriedade `andando` para o valor
 booleano que representa "verdadeiro";
 */
-pessoa.andar = (metrosCaminhados) => {pessoa.caminhouQuantosMetros += metrosCaminhados; pessoa.andando = true;}
+pessoa.andar = (metrosCaminhados) => {
+  pessoa.caminhouQuantosMetros += metrosCaminhados;
+  pessoa.andando = true;
+};
 
 /*
 Adicione um método ao objeto `pessoa` chamado `parar`, que irá modificar o valor
 da propriedade `andando` para o valor booleano que representa "falso".
 */
-pessoa.parar = () => {pessoa.andando = false}
+pessoa.parar = () => (pessoa.andando = false);
 
 /*
 Crie um método chamado `nomeCompleto`, que retorne a frase:
 - "Olá! Meu nome é [NOME] [SOBRENOME]!"
 */
-pessoa.nomeCompleto = () => {return `Olá! Meu nome é ${pessoa.nome} ${pessoa.sobrenome}`}
+pessoa.nomeCompleto = () => {
+  return `Olá! Meu nome é ${pessoa.nome} ${pessoa.sobrenome}`;
+};
 
 /*
 Crie um método chamado `mostrarIdade`, que retorne a frase:
 - "Olá, eu tenho [IDADE] anos!"
 */
-pessoa.mostrarIdade = ()=>{return `Olá, eu tenho ${pessoa.idade} anos!`}
+pessoa.mostrarIdade = () => {
+  return `Olá, eu tenho ${pessoa.idade} anos!`;
+};
 
 /*
 Crie um método chamado `mostrarPeso`, que retorne a frase:
 - "Eu peso [PESO]Kg."
 */
-pessoa.mostrarPeso = () => {`Eu tenho ${pessoa.peso} kg.`}
+pessoa.mostrarPeso = () => `Eu tenho ${pessoa.peso} kg.`;
 
 /*
 Crie um método chamado `mostrarAltura` que retorne a frase:
 - "Minha altura é [ALTURA]m."
 */
-pessoa.mostrarAltura = () => { return `Minha altura é ${pessoa.altura}m.`}
+pessoa.mostrarAltura = () => {
+  return `Minha altura é ${pessoa.altura}m.`;
+};
 
 /*
 Agora vamos brincar um pouco com o objeto criado:
@@ -96,7 +114,7 @@ Faça a `pessoa` fazer 3 aniversários.
 */
 pessoa.fazerAniversario();
 pessoa.fazerAniversario();
-pessoa.fazerAniversario(); 
+pessoa.fazerAniversario();
 
 /*
 Quantos anos a `pessoa` tem agora? (Use a instrução para responder e
@@ -154,30 +172,18 @@ método), que será concatenada com a frase de retorno, mostrando a resposta
 correta, de acordo com os dados inseridos no objeto.
 */
 pessoa.apresentacao = () => {
-    if(pessoa.sexo === 'Feminino' && pessoa.idade > 1 && pessoa.caminhouQuantosMetros > 1){
-        return `Olá, eu sou a ${pessoa.nomeCompleto()}, tenho ${pessoa.idade} anos, ${pessoa.altura}, meus peso é ${pessoa.peso} e, só hoje, eu já caminhei ${pessoa.caminhouQuantosMetros} metros!`;
-    } else if(pessoa.sexo === 'Feminino' && pessoa.idade === 1 && pessoa.caminhouQuantosMetros === 1){
-        return `Olá, eu sou a ${pessoa.nomeCompleto()}, tenho ${pessoa.idade} ano, ${pessoa.altura}, meus peso é ${pessoa.peso} e, só hoje, eu já caminhei ${pessoa.caminhouQuantosMetros} metro!`;
-    } else if(pessoa.sexo === 'Feminino' && pessoa.idade > 1 && pessoa.caminhouQuantosMetros === 1){
-        return `Olá, eu sou a ${pessoa.nomeCompleto()}, tenho ${pessoa.idade} anos, ${pessoa.altura}, meus peso é ${pessoa.peso} e, só hoje, eu já caminhei ${pessoa.caminhouQuantosMetros} metro!`;
-    }else if(pessoa.sexo === 'Feminino' && pessoa.idade === 1 && pessoa.caminhouQuantosMetros > 1){
-        return `Olá, eu sou a ${pessoa.nomeCompleto()}, tenho ${pessoa.idade} ano, ${pessoa.altura}, meus peso é ${pessoa.peso} e, só hoje, eu já caminhei ${pessoa.caminhouQuantosMetros} metros!`;
-    }
+  var sexo = pessoa.sexo === "Feminino" ? (sexo = "a") : (sexo = "o");
 
+  var idadeAnos =
+    pessoa.idade === 1 ? (idadeAnos = "ano") : (idadeAnos = "anos");
 
-    if(pessoa.sexo === 'Masculino' && pessoa.idade > 1 && pessoa.caminhouQuantosMetros > 1){
-        return `Olá, eu sou o ${pessoa.nomeCompleto()}, tenho ${pessoa.idade} anos, ${pessoa.altura}, meus peso é ${pessoa.peso} e, só hoje, eu já caminhei ${pessoa.caminhouQuantosMetros} metros!`;
-    } else if(pessoa.sexo === 'Masculino' && pessoa.idade === 1 && pessoa.caminhouQuantosMetros === 1){
-        return `Olá, eu sou o ${pessoa.nomeCompleto()}, tenho ${pessoa.idade} ano, ${pessoa.altura}, meus peso é ${pessoa.peso} e, só hoje, eu já caminhei ${pessoa.caminhouQuantosMetros} metro!`;
-    } else if(pessoa.sexo === 'Masculino' && pessoa.idade > 1 && pessoa.caminhouQuantosMetros === 1){
-        return `Olá, eu sou o ${pessoa.nomeCompleto()}, tenho ${pessoa.idade} anos, ${pessoa.altura}, meus peso é ${pessoa.peso} e, só hoje, eu já caminhei ${pessoa.caminhouQuantosMetros} metros!`;
-    } else if(pessoa.sexo === 'Masculino' && pessoa.idade === 1 && pessoa.caminhouQuantosMetros > 1){
-        return `Olá, eu sou o ${pessoa.nomeCompleto()}, tenho ${pessoa.idade} ano, ${pessoa.altura}, meus peso é ${pessoa.peso} e, só hoje, eu já caminhei ${pessoa.caminhouQuantosMetros} metros!`;
-    }
+  var metrosCaminhados =
+    pessoa.caminhouQuantosMetros === 1
+      ? (metrosCaminhados = "metro")
+      : (metrosCaminhados = "metros");
 
-
-    
-}
+  return `Olá, eu sou ${sexo} ${pessoa.nome} ${pessoa.sobrenome}, tenho ${pessoa.idade} ${idadeAnos}, ${pessoa.altura} metros, meus peso é ${pessoa.peso}kg e, só hoje, eu já caminhei ${pessoa.caminhouQuantosMetros} ${metrosCaminhados}!`;
+};
 
 // Agora, apresente-se ;)
 console.log(pessoa.apresentacao());

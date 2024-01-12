@@ -1,0 +1,33 @@
+camelCase = padrão para nome de variável,funções,objetos que tem mais de uma palavra
+
+truthy e falsy
+
+os valores truthy são valores que são representados por true
+os valores falsy são valores que são representados por false
+
+falsy = {
+    undefined = 0,
+    null = -0,
+    NaN = '' ou ""
+};
+
+String com valor é true
+
+Todos os outros valores diferente daqueles falsy, são truthy
+
+// condicional ternário
+
+condicao ? true : false;
+
+// Escopo de variáveis
+
+escopo é o local onde eu declaro uma variável
+
+escopo global === fora de função // não é muito recomendado declarar variáveis de escopo global
+
+escopo local === dentro de função
+
+o javascript usa algo chamada garbage collection é tipo um local,uma lixeira, que é armazenada variáveis(ou qualuqer outra coisa - object, array etc) que não estão mais sendo usadas; e isso é bom pois o JavaScritp automáticamente exclui uma variável que não está sendo mais utilizada, então é aconselhado usar variáveis	de escopo local do que global; pois no escopo local isso é feito automáticamente; ai não guarda lixo na memória, que ia acontecer se estivesse usando em escopo global
+
+
+se você declarar uma variável seu usar a palavra chave var, ela mesmo estando dentro de uma função, ela é como se fosse escopo global e não local;
