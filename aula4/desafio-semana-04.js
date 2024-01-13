@@ -5,15 +5,12 @@ equivalente booleano para o valor passado no argumento for `true`, ou `false`
 para o contrário.
 */
 var isTruthy = (x) => {
-  if (x === true) {
-    return true;
-  } else {
-    return false;
-  }
+  return !!x;
 };
 
 // Invoque a função criada acima, passando todos os tipos de valores `falsy`.
 console.log(isTruthy(undefined));
+console.log(isTruthy(false));
 console.log(isTruthy(null));
 console.log(isTruthy(NaN));
 console.log(isTruthy(0));
@@ -27,8 +24,8 @@ Invoque a função criada acima passando como parâmetro 10 valores `truthy`.
 */
 console.log(isTruthy(!0));
 console.log(isTruthy(Object));
-console.log(isTruthy(10));
-console.log(isTruthy(1.3));
+console.log(isTruthy(10 + 10));
+console.log(isTruthy(function() {}));
 console.log(isTruthy("false"));
 console.log(isTruthy(1));
 console.log(isTruthy([]));
@@ -112,11 +109,14 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 citado acima, no lugar de "pessoas".
 */
 carro.addPessoa = (pessoa) => {
+  var p = "pessoas";
+
   if (pessoa <= 5) {
     if (carro.quantidadePessoas < 5) {
       carro.quantidadePessoas += pessoa;
       if (carro.quantidadePessoas <= 5) {
-        return `Já temos ${carro.quantidadePessoas} no carro!`;
+        return `Já temos ${carro.quantidadePessoas} no carro! Só cabem mais
+        ${(5 - carro.quantidadePessoas)} ${p}!`;
       } else {
         carro.quantidadePessoas -= pessoa;
         return `O carro já está lotado`;
@@ -125,14 +125,11 @@ carro.addPessoa = (pessoa) => {
       return `O carro já está lotado`;
     }
   } else {
-    var p = "pessoas";
     if (5 - carro.quantidadePessoas === 1) {
       p = "pessoa";
     }
     return (
-      "O carro possui apenas 5 locais, não dá para adicionar mais pessoas do que isso. Só cabem mais " +
-      (5 - carro.quantidadePessoas) +
-      ` ${p}!`
+      "O carro possui apenas 5 locais, não dá para adicionar mais pessoas do que isso."
     );
   }
 };
