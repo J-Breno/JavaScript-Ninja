@@ -19,7 +19,7 @@ function arr1(arr) {
 Imprima o segundo índice do array retornado pela função criada acima.
 */
 // ?
-console.log(arr1(arr[2]));
+console.log(arr1(arr)[2]);
 /*
 Crie uma função que receba dois parâmetros: o primeiro, um array de valores; e o
 segundo, um número. A função deve retornar o valor de um índice do array que foi passado
@@ -67,40 +67,32 @@ os livros.
 // ?
 function book(nameBook) {
   var objBook = {
-    institutasJoaoCalvino: {
+    "Institutas de João Calvino": {
       qunatidadePagina: 1072,
       autor: "João Calvino",
       editora: "Cultura Cristã",
     },
-    confissaoFeWestminster: {
+    "Confissão de Fé de Westminster": {
       qunatidadePagina: 240,
       autor: "Assembleia de Westminster",
       editora: "Cultura Cristã",
     },
 
-    nascidoEscravo: {
+    "Nascido Escravo": {
       qunatidadePagina: 104,
       autor: "Martinho Lutero",
       editora: "Fiel",
     },
   };
 
-  if (nameBook === "institutasJoaoCalvino") {
-    return objBook.institutasJoaoCalvino;
-  } else if (nameBook === "confissaoFeWestminster") {
-    return objBook.confissaoFeWestminster;
-  } else if (nameBook === "nascidoEscravo") {
-    return objBook.nascidoEscravo;
-  } else {
-    return objBook;
-  }
+  return !nameBook ? objBook : objBook[ nameBook ];
 }
 
 /*
 Usando a função criada acima, imprima o objeto com todos os livros.
 */
 // ?
-console.log(book());
+console.log(book("Confissão de Fé de Westminster"));
 
 /*
 Ainda com a função acima, imprima a quantidade de páginas de um livro qualquer,
@@ -108,18 +100,18 @@ usando a frase:
 "O livro [NOME_DO_LIVRO] tem [X] páginas!"
 */
 // ?
-console.log(`O Nascido Escravo tem ${book('nascidoEscravo').qunatidadePagina}`)
+console.log(`O Nascido Escravo tem ${book('Nascido Escravo').qunatidadePagina}`)
 /*
 Ainda com a função acima, imprima o nome do autor de um livro qualquer, usando
 a frase:
 "O autor do livro [NOME_DO_LIVRO] é [AUTOR]."
 */
 // ?
-console.log(`O autor do livro institutas da religião cristão é ${book('institutasJoaoCalvino').autor}`)
+console.log(`O autor do livro institutas da religião cristão é ${book('Institutas de João Calvino').autor}`)
 /*
 Ainda com a função acima, imprima o nome da editora de um livro qualquer, usando
 a frase:
 "O livro [NOME_DO_LIVRO] foi publicado pela editora [NOME_DA_EDITORA]."
 */
 // ?
-console.log(`O livro Confissão de Fé de Westminster foi publicada pela editora ${book('confissaoFeWestminster').editora}`);
+console.log(`O livro Confissão de Fé de Westminster foi publicada pela editora ${book('Confissão de Fé de Westminster').editora}`);
