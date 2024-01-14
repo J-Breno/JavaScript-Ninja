@@ -1,0 +1,11 @@
+// Operador virgula
+
+ele junta varias expressões em uma unica expressão
+
+Apesar de ser maior o jeito de escrever sem ser com o Operador virgula, é melhor usar sem ser com ele, pois ficar mais fácil de olhar e já entender o código.
+
+// Estrutura condicionais
+
+while é normalmente quando você não sabe quantas vezes ele tem que se repetir; já o for é quando você sabe quantas vezes ele tem que se repetir;
+
+lembre-se no while você tem que tomar cuidado, para ter certeza que uma hora ele vai parar, para não ter perigo do código quebrar;

@@ -1,0 +1,11 @@
+%(mod) = retorna o inteiro de uma divisão
+
+arrays são objetos disfarsados no javascript, que tem até propriedades e métodos;
+
+length - conta a quantidade de itens que aquele array tem
+
+o método push serve para adicionar um item no final do array;
+
+// for
+
+A estrutura de repetição for você já sabe normalmente quantas vezes ele tem que executar
