@@ -1,0 +1,21 @@
+// Escopo
+
+hosting - é insamento- algo que é levado para cima;
+
+quando você tem uma função literal, mesmo que você crie ela depois de return, o JavaScript lança ela para cima;
+se você tivesse atribuido ela a uma variável, não ia funcionar;
+
+variáveil deve ser sempre criada no inicio da função
+
+IFE - Immediately-invoked function expression = função auto-executável; e automáticamente
+
+Para eu fazer que ela seja auto-executável eu devo envolver a função em parenteses
+
+
+quando ela está dentro de um parenteses, ela vira uma expressão de função;
+
+A vantagem de usar função auto-executável é que você cria e você força um escopo local
+
+O bom de usar uma IFE é que você força ela ser um escopo local, e evita ter funções de escopo global
+
+apartir de agora deve-se estrar a função dentro de uma IFE;

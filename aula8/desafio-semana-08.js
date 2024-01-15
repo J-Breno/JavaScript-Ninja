@@ -69,7 +69,7 @@ function calculator(operador){
       default:
         return 'Operação Inválida.';
     }
-  }
+  };
 }
 
 
