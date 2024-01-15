@@ -69,18 +69,13 @@ Só vamos mudar o range:
 */
 
 for(let cem = 100; cem <= 120; cem++){
-    if(cem % 2 === 0) {
-        console.log( 'Números pares entre 100 e 120: ' + cem);
-    }
-}
+    cem % 2 === 0 ? console.log( 'Números pares entre 100 e 120: ' + cem) : '';
 
+}
 console.log('-------');
 
 for(let cem11 = 111; cem11 <= 125;cem11++){
-    if(cem11 % 2 === 1) {
-        console.log( 'Números ímpares entre 111 e 125: ' + cem11);
-
-    }
+    cem11 % 2 === 1 ? console.log( 'Números ímpares entre 111 e 125: ' + cem11) : '';
 }
 
 console.log('-------')

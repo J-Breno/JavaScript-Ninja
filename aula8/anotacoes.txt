@@ -1,0 +1,22 @@
+sempre nomei suas funções, não faça funções anônimas
+
+var func = function func() {
+
+};
+
+porque fazer isso?
+
+porque sempre que eu nomeio uma função, facilita o debug de uma função;
+
+as funções no javascript são objetos também, dito isso elas podem ter propriedades e métodos também;
+
+
+tem momentos que será necessário usar funções anônimas, porém por padrão faça nomeando ela;
+
+// Programação funcional
+
+é o jeito que você escreve o seu programa é escrito baseado em funções
+
+as funções no JavaScript são objetos de primeira classe = elas tem o mesmo tratamento que objetos no javascript, ou seja, tudo o que você consegue fazer com objetos você consegue fazer com funções no javascript;
+
+podemos retornar funções dentro de funções;
