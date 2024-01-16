@@ -1,0 +1,14 @@
+função de callback é quando você precisa chamar ela em um momento especifico
+
+// Valores primitivos não são objetos
+
+todos os outros valores são objetos
+
+se tem propriedades e métodos ele é um objeto;
+
+construtores no JavaScript cria novos objetos
+
+você usa new para criar construtores
+
+JavaScript tem tipagem dinâmica ele mesmo converte os tipos se ele achar necessário;
+
