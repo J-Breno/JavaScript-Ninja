@@ -14,7 +14,7 @@ resolver o problema corretamente.
   five = five.valueOf();
   console.log(five + " é número?", typeof five === "number");
 
-  var concat = new String(10 + 10);
+  var concat = new String(10) + 10;
   concat = concat.valueOf();
   console.log(
     '"' + concat + '" é uma string? E é igual a "1010"?',
@@ -76,17 +76,16 @@ operador passado para a função "/calculator", e passando para esse método
 os dois parâmetros da função de retorno de "calculator".
 */
   function calculator(operador) {
-    if (!!operation[operador] === false) {
+    if (!operation[operador]) {
       return false;
-    } else if (!!operation[operador] === true) {
-      return function (x, y) {
-        if (typeof x !== "number" || typeof y !== "number") {
-          return false;
-        } else {
-          return operation[operador](x, y);
-        }
-      };
     }
+    return function (x, y) {
+      if (typeof x !== "number" && typeof y !== "number") {
+        return false;
+      } else {
+        return operation[operador](x, y);
+      }
+    };
   }
   console.log(calculator("+")(10, 8));
   /*
@@ -140,7 +139,7 @@ parâmetros para o método "log" de "console":
 - O segundo, a função de soma, passando os dois operandos.
 - Se "sum" for "false", mostrar no console a mensagem de erro.
 */
-  function verificar(operation, num1, num2, ) {
+  function verificar(operation, num1, num2) {
     if (!!operation === false) {
       console.log(showErrorMessage(operationSignal));
     } else {
@@ -175,7 +174,7 @@ divisão e resto. Crie variáveis com os nomes "subtraction",
 Repita o PASSO 2 novamente, mas passando um operador inválido, para ver se
 a mensagem de erro será mostrada no console.
 */
-  operationSignal = '=';
-   var invalided = calculator(operationSignal);
-   verificar(invalided,8 ,10)
+  operationSignal = "=";
+  var invalid = calculator(operationSignal);
+  verificar(invalid, 8, 10);
 })();

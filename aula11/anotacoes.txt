@@ -1,0 +1,13 @@
+// Laços (loops)
+
+do / while - faz primeiro verificação depois;
+
+for in para percorrer um objeto
+
+// Saltos
+
+return = ele é considerado um salto porque você pode usar ele no meio da tua função, e se ele encontrar um return ele já salta para fora da função
+
+break = serve para sair de uma instrução
+
+continue = pula as instruções e volta para o começo sem interar naquela seção, e se tiver mais coisa para interar depois ele continua interando, diferente do break que se achar um break ele termina ali mesmo
