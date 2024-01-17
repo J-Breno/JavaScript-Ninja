@@ -1,0 +1,27 @@
+// Objetos
+
+objetos são mutáveis - podem mudar os valores
+
+E eles são manipulados por referência - cada objeto que eu crio é um objeto diferente
+
+
+criar objetos de forma literal {}
+
+criar objeto como constructor 
+
+é melhor cirar objeto como literal do que como constructor
+
+criar objeto com a função Object.create
+
+Object.prototype -- cada objeto que eu crie vai herdar desse ai; o único que não herda é ele mesmo;
+
+
+método join vai juntar em uma string, separado por virgula as propriedades do array, e ele aceita um parâmentro para ser o separador;
+
+push = adiciona no final do array
+
+pop = exclui no final do array;
+
+array.reverse() === inverte o array; // ele modifica o array, então use com cuidado
+
+array.sort() == ordena por ordem alfabética; // ele também modifica o array principal

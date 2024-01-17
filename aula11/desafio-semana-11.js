@@ -60,11 +60,11 @@ Mostre no console os números no array.
   var numbers = [];
   console.log("De 0 a 10:");
   for (let i = 0; i <= 20; i++) {
-    numbers.push(i);
-    if (i >= 10) {
+    if (i > 10) {
       console.log(numbers);
       break;
     }
+    numbers.push(i);
   }
 
   /*
