@@ -1,0 +1,9 @@
+reduce - reduz um array 
+
+reduceRigth - a dfiferença é que é da direita para esquerda, mesma coisa do reduce normal, só muda que é do lado ao contrario
+
+indexOF - basicamente ele vai procurar se o valor existe no indece do array
+
+lastindexOf - a diferença é que ele procura do final para o inicio
+
+isArray - 
