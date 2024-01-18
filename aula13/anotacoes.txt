@@ -1,0 +1,24 @@
+arrays como são objetos no javascript, tem propriedades e metodos
+
+adicionar um item no final do arrays com o push;
+Object.toString - vai converter para String
+
+metodo concat server para concatenar - ele gera um novo array, só que ele não modifica o array principal, essa é a diferença dele para o push, pois o push modifica
+
+slice - ele vai retornar um pedaço do array que a gente selecionar
+unshift adiconar no começo
+shif remove no começo
+
+splice - modifica o array principal e ele pode tanto adicionar quando remover itens do array;
+
+foreach é tipo um for
+
+metodo ervery - ele é um predicado do array, ele vai aplicar uma funçao e o retorno dessa função vai retornar true ou false,
+
+some - esse vai retornar true se pelo menos um dos elementos for true;
+
+poderiamos diferenciar every de some como um sendo && e o outro sendo ||
+
+map - ele recebe uma funçao por parâmetro, e ele vai percorrer todo o array, ele vai retornar um novo array
+
+filter - 
