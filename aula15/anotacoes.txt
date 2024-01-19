@@ -1,0 +1,11 @@
+// JavaScript no browser.
+tem duas formas, você pode adicionar no head ou no final do body
+se você adicionar no head você deve usar o defer
+
+// this
+
+this - em JavaScript ele vai aparecer em dois lugares, o primeiro lugar é em métodos de objetos(vai fazer referência ao método principal), o segundo lugar é dentro de função, ai ele pode ter dois valores, o primeiro valor é a referência ao objeto global
+
+no browser o objeto global vai ser o window, no node ele se chama global
+
+// arguments - ele é um objeto, arrayLike, ele é parecido como um array, parece como um array, mas não é um array. e ele aparece implicitamente dentro de funções
