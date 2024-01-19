@@ -1,0 +1,37 @@
+// use strict
+
+ecmascript - padrão para linguagem JavaScript
+
+use strict - tudo o que estiver no escopo do use strict vai estar restrito
+
+use strict não permite declaração de variáveis sem o var
+
+use strict não permite o uso do wite
+
+no escopo global,dentro de funções o use strict === undefined
+
+o delete tentando deletar o objeto inteiro não é reconhecido do use strict
+
+no use strict propriedades devem ter nomes diferentes
+
+funções os argumentos devem ter nomes diferentes
+
+// String
+
+.legth - conta quantidade caracteres em uma String
+
+.charAt(index) - qaul o caractere que está no index que eu passar 
+
+.concat(args1,args2,args3 ....) -- concatenar String - não modifica a String principal
+
+.indexOf(args1, [start]) -- diz onde o caractere que você está procurando está, e pode ser passado um segundo parâmetro que diz onde deve começar a contar
+
+lastindexOf
+
+replace(String, newString) - substitui um trecho existe para um novo existente - ele não modifica a String principal, ele faz uma nova, ele só troca da primeira que ele achar
+
+.slice(indexQueroComecarPegar, quantosVoceQuerPegar) -- o último item ele não mostra e ele cria um novo array
+
+.split(separador, limite) -- ele não modifica o valor principal, ele cria um array, separando do valor que foi passado
+
+a diferença do slice para o substring

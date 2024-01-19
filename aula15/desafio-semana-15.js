@@ -27,13 +27,13 @@
       this.name = name,
       this.lastName = lastName,
       this.age = age,
-      this.getFullName = () => {
+      this.getFullName = function getFullName() {
         return `${name} ${lastName}`;
       },
-      this.getAge = () => {
+      this.getAge = function getAge() {
         return this.age;
       }
-      this.addAge = function() {
+      this.addAge = function addAge() {
         this.age += arguments[0];
         return this;
       }
@@ -78,12 +78,9 @@
     cada um. A frase deverá ser no formato:
     - "[NOME COMPLETO] agora tem [NOVA IDADE] anos."
     */
-   console.log(joao.addAge(4));
-   console.log(lutero.addAge(10));
-   console.log(calvino.addAge(10));
    
    console.log( '\nNova idade das pessoas:' );
-    console.log(`${joao.getFullName()} agora tem ${joao.age} anos.`);
-    console.log(`${lutero.getFullName()} agora tem ${lutero.age} anos.`);
-    console.log(`${calvino.getFullName()} agora tem ${calvino.age} anos.`)
+    console.log(`${joao.getFullName()} agora tem ${joao.addAge(2).getAge()} anos.`);
+    console.log(`${lutero.getFullName()} agora tem ${lutero.addAge(10).getAge()} anos.`);
+    console.log(`${calvino.getFullName()} agora tem ${calvino.addAge(10).getAge()} anos.`)
 })();
