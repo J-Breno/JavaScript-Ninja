@@ -1,0 +1,32 @@
+// Expressões Regulares
+
+servem para manipular string - substituir texto, pegar umas partes, manipular textos etc
+ela é um tipo primitivo no JavaScript;
+
+para fazer Expressões Regulares deve-se usar duas barras
+
+Regex = Regular Expression
+
+de = procure uma letra d, seguido de uma letra e
+
+ela é case Sencitive
+
+g - global
+i - ignore case
+
+Objeto regExp()
+
+\w = caracteres alfanuméricos e _
+\d = números (digits)
+
+voce pode dividir o que quer com pipe ai vai ser um ou outro = text.match(/oi | ai /g)
+
+classes de caracteres = vai ser usado o colchetes [1-9A-Za-z] // isso aqui é olhado da tabela unicode
+
+agrupamento de caracteres = vai ser usado o parenteses texto.match(/(Lorem) | (qu)/gi)
+
+
+    var newTexto = texto.match(/(Lorem) | (qu)/gi)
+
+    var newTexto = texto.replace(/di/gi, '*DI*')
+    var newTexto = texto.replace(/(di)/gi, '==$1==')
