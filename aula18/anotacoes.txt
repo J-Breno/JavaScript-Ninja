@@ -1,0 +1,37 @@
+\w = A-za-z0-9
+
+\s - espaços em branco
+
+\n quebra de linha
+
+\t - tab/tabulação
+
+\. - todos os caracteres que não sejam quebra de linha
+
+[^abc] - todos os caracteres menos o a,b e c vão ser feito o match
+
+\W - qualqeur caracteres, menos os alfanuméricos (ele está maiusculo), isso vale o mesmo para os outros \'x'
+
+[\S\s] - vai pegar todos os caracteres
+
+// Repetidores
+
+intervalo  - item anterior ao menos n vezes, e no máximo m vezes - representado pelas chaves
+
+\d{2,4} - pegar todos os números que tem no min 2 e no máximo 4
+
+\d{3,} - no min 3 e no máximo qualqeur outro
+
+\d{4} - número exato
+
+\d\d\d? - o último número é opcional
+
+\s\d?
+
+s+ - pelo menos um s ou mais vezes
+
+\w+ - faz o match com as palavras
+
+\w* - qualquer caracteres
+
+os match são as capturas 
