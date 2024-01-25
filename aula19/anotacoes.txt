@@ -8,8 +8,8 @@ $ = fim de String
 >$ - verificar se o final da String termina com esse caractere
 
 flag g - casa globalmente, olha toda String
-flag i -  ignore case, 
-flag m - multline - se tiver uma tag quebrada ele vai fazer uma captura em mais de uma linha, 
+flag i -  ignore case,
+flag m - multline - se tiver uma tag quebrada ele vai fazer uma captura em mais de uma linha,
 
 /^</gim -- vai casar com todos os começos de linha que tiver '<', independente da linha
 
@@ -21,7 +21,7 @@ flag m - multline - se tiver uma tag quebrada ele vai fazer uma captura em mais 
 
 // métodos de String que pode usar regex
 
-match 
+match
 replace
 split
 search - vai fazer uma busca, retorna o index de onde foi encontrado
@@ -32,7 +32,7 @@ var regex = new RegExp('nando');
 var regex = new RegExp('\\d');
 
 RegExp é um tipo
-métodos de RegExp 
+métodos de RegExp
 
 -   test - retorna true or false
 
