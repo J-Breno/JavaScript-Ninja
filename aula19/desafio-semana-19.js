@@ -99,5 +99,10 @@
             return item == cssClass;
         })
     }
-    console.log(hasClass(markup, 'container'));
+
+    var classes = ['container', "text", "date", "excerpt" ,'main'];
+
+    classes.forEach(function(cssClass) {
+        console.log(`${hasClass(markup, cssClass)} para a classe ${cssClass}`)
+    });
 })();
