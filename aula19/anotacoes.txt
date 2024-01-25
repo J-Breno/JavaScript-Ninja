@@ -1,0 +1,47 @@
+o circonflexo precisa estar dentro de uma lista para fazer negação
+
+ele fora de uma lista ele vai funcionar como caractere de inicio de String
+
+^<p> - verifica se a tag p está no inicion da String
+
+$ = fim de String
+>$ - verificar se o final da String termina com esse caractere
+
+flag g - casa globalmente, olha toda String
+flag i -  ignore case, 
+flag m - multline - se tiver uma tag quebrada ele vai fazer uma captura em mais de uma linha, 
+
+/^</gim -- vai casar com todos os começos de linha que tiver '<', independente da linha
+
+? - repetição não gulosa(se usado após repetidores)
+
+/<(\w+)>([^<]+)<\/\w+>/g === /<(\w+)>.+?<\/(\w+)>/g
+
+?: - isso faz com que ele não faça uma captura
+
+// métodos de String que pode usar regex
+
+match 
+replace
+split
+search - vai fazer uma busca, retorna o index de onde foi encontrado
+
+// O constructor RegExp()
+
+var regex = new RegExp('nando');
+var regex = new RegExp('\\d');
+
+RegExp é um tipo
+métodos de RegExp 
+
+-   test - retorna true or false
+
+name = 'joao'
+/z/.test(name); //false
+
+var regex = /\d/;
+
+var name = 'Bre1n2o';
+
+var result = regex.exec(name); //vai pegar o número cada vez que você exeutar
+
