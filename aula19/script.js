@@ -5,4 +5,9 @@
     var cpfCortado = cpf.split(/\D/g);
     var cpfLimpo = cpfCortado.toString().replace(/,/g,'');
     console.log(cpfLimpo)
+
+    function isValidEmail(email) {
+        return email.match(/^\-?\w+?\.?\w+[\.|\_|\+|]?\w+?[^\_|^\.^\+^\-]\@\w+\.\w\w+(\.\w\w)?/gim)
+    }
+    console.log(isValidEmail('joão@hotmail.com'))
 })();
