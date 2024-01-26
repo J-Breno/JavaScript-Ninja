@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+:root {
+  font-size: 62.5%;
+  --bg-body: #ccc;
+  --color-bg-light: #444;
+  --color-shadow: #111;
+  --btn-stop: rgb(240, 21, 21);
+  --btn-stop-hover: rgb(202, 23, 23);
+  --btn-start: rgb(13, 197, 28);
+  --btn-start-hover: rgb(21, 136, 33);
+  --btn-reset: rgb(21, 160, 240);
+  --btn-reset-hover: rgb(35, 160, 198);
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: var(--bg-body);
+}
+
+div.main {
+  width: 80rem;
+  height: 50rem;
+  background: linear-gradient(
+    190deg,
+    var(--color-bg-light) 10%,
+    var(--color-shadow)
+  );
+  box-shadow: 1px 1px 30px 5px var(--color-bg-light);
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  & div.timer {
+    color: white;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem 0;
+    font-size: 6rem;
+
+    & p {
+      width: 13rem;
+      height: 13rem;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: var(--color-bg-light);
+      font-size: 6rem;
+      border-radius: 1rem;
+      box-shadow: inset 1px 1px 10px 3px var(--color-shadow);
+    }
+  }
+
+  & div.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 40rem;
+    gap: 2rem;
+
+    & button {
+      width: 11rem;
+      height: 5rem;
+      border-radius: 1rem;
+      cursor: pointer;
+      font-size: 1.6rem;
+      font-weight: bold;
+
+      &.green {
+        background-color: var(--btn-start);
+        border: none;
+
+        &:hover {
+          background-color: var(--btn-start-hover);
+        }
+        &:active {
+          box-shadow: inset 1px 1px 10px var(--color-shadow);
+        }
+      }
+      &.red {
+        background-color: var(--btn-stop);
+        border: none;
+
+        &:hover {
+          background-color: var(--btn-stop-hover);
+        }
+        &:active {
+          box-shadow: inset 1px 1px 10px var(--color-shadow);
+        }
+      }
+      &.blue {
+        background-color: var(--btn-reset);
+        border: none;
+
+        &:hover {
+          background-color: var(--btn-reset-hover);
+        }
+        &:active {
+          box-shadow: inset 1px 1px 10px var(--color-shadow);
+        }
+      }
+    }
+  }
+}

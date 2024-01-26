@@ -3,11 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cronômetro</title>
     <script src="desafio-semana-21.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <!-- para selecionar elementos no javascript use o data- , se for usar o class use para estilizar css, mas não use id -->
 </head>
 <body>
-    
+    <div class="main">
+        <div class="timer">
+            <p data-span="hours">00</p>:<p data-span="minutes">00</p>:<p data-span="seconds">00</p>
+        </div>
+        <div class="buttons">
+            <button class="green" data-button="green">Start</button>
+            <button class="red" data-button="red">Stop</button>
+            <button class="blue" data-button="blue">Reset</button>
+        </div>
+    </div>
+   
 </body>
 </html>
