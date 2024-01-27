@@ -35,7 +35,7 @@
     function () {
       temporizador = setInterval(function () {
         $seconds.innerHTML =
-          counterSeconds < 10 ? `0${++counterSeconds}` : `${++counterSeconds}`;
+          counterSeconds < 9 ? `0${++counterSeconds}` : `${++counterSeconds}`;
         if (counterSeconds > 59) {
           if(counterSeconds === 60) {
             $seconds.innerHTML = '00';
@@ -67,11 +67,12 @@
 
   $buttonRed.addEventListener(
     "click",
-    function () {
-      clearInterval(temporizador);
-    },
+    stopTimer,
     false
   );
+  function stopTimer() {
+    clearInterval(temporizador);
+  }
 
   $buttonBlue.addEventListener(
     "click",
@@ -79,9 +80,11 @@
       $hours.innerHTML = "00";
       $minutes.innerHTML = "00";
       $seconds.innerHTML = "00";
+      counterHours = 1;
+      counterMinutes = 1;
+      counterSeconds = 0;
 
-      clearInterval(temporizador);
-      console.log(temporizador)
+      stopTimer();
       
     }
     ,
