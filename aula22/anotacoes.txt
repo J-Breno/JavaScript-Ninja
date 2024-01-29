@@ -1,0 +1,12 @@
+// funções 
+.length - ela conta a quantidade de parâmetros que essa função pode receber
+
+isso pode ajudar se você precisar validaer uma função para saber quantos parÂmetros foram passados a ela
+
+.toString(); -- todos os objetos tem essa função, porém cada um tem um objetivo diferente
+
+.call() = vai invocar a função para mim, é a mesma coisa que chamar a função normalmente, porem com o médoto call eu posso passar um this para ele, ou seja, eu posso dizer qual o this para aquela função
+
+// Array-like
+
+fui fazer um projeto de accordion e fui selecionar todos os li, e isso me retornou um Array-like, o Array.prototype vai me ajudar a manipular ele
