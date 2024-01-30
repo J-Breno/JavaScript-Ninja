@@ -52,6 +52,7 @@ input {
   font-weight: bold;
   border-radius: 10px;
   cursor: pointer;
+  box-shadow: inset 1px 1px 20px -10px #fff;
 }
 
 input:focus {

@@ -1,4 +1,4 @@
-(function () {
+(function (win, doc) {
   "use strict";
 
   /*
@@ -26,94 +26,80 @@
     input;
     - Ao pressionar o botão "CE", o input deve ficar zerado.
     */
-  const $input = document.querySelector('[data-js="input-calculator"]');
-  const $numbers = document.querySelectorAll('[data-js="numbers"]');
-  const $deleteDel = document.querySelector('[data-js="delete-del"]');
-  const $deleteAc = document.querySelector('[data-js="delete-ac"]');
-  const $operators = document.querySelectorAll('[data-js="operators"]');
-  const $result = document.querySelector('[data-js="result"]');
-  // const math = require('/node_modules/mathjs');
-  let arrNumbers = [];
-  let arrOperators = [];
-  var total = "";
+  const $input = doc.querySelector('[data-js="input-calculator"]');
+  const $numbers = doc.querySelectorAll('[data-js="numbers"]');
+  const $deleteDel = doc.querySelector('[data-js="delete-del"]');
+  const $deleteAc = doc.querySelector('[data-js="delete-ac"]');
+  const $operators = doc.querySelectorAll('[data-js="operators"]');
+  const $result = doc.querySelector('[data-js="result"]');
 
-  $numbers.forEach(function (item, index) {
-    item.addEventListener(
-      "click",
-      function () {
-        arrNumbers.push(item.value);
-        $input.value += item.value;
-      },
-      false
-    );
+  Array.prototype.forEach.call($numbers, function (button) {
+    button.addEventListener("click", handleClickNumber, false);
   });
 
-  $operators.forEach(function (item, index) {
-    item.addEventListener(
-      "click",
-      function () {
-        arrOperators.push(item.value);
-        eval(item);
-        $input.value += item.value;
-      },
-      false
-    );
+  Array.prototype.forEach.call($operators, function (button) {
+    button.addEventListener("click", handleClickOperation, false);
   });
-  let resultado = [];
-  if (!!$input.value) {
-    console.log(`esse é o valor do ${$input.value}`);
-    $input.value = eval($input.value);
-  } else {
-    $result.addEventListener(
-      "click",
-      function () {
-        for (let i = 0; i < arrNumbers.length; i++) {
-          resultado.push(arrNumbers[i]);
-          resultado.push(arrOperators[i]);
-        }
 
-        resultado.push(total);
+  $deleteAc.addEventListener('click', handleClickAc, false);
+  $result.addEventListener("click", handleClickResult, false);
 
-        switch (resultado[resultado.length - 1]) {
-          case "+":
-          case "-":
-          case "*":
-          case "/":
-          case "%":
-          case undefined:
-            resultado.pop();
-            break;
-          default:
-            break;
-        }
-        total = resultado.toString().replace(/,/g, "");
-        console.log(total);
-        console.log(eval(total));
-        $input.value = eval(total);
-
-        resultado = [];
-        arrNumbers = [];
-        arrOperators = [];
-        total = eval(total);
-      },
-      false
-    );
+  function handleClickNumber() {
+    $input.value += this.value;
   }
 
-  $deleteAc.addEventListener(
+  function handleClickOperation() {
+    $input.value = removeLastItemIfItIsAnOperator($input.value);
+    $input.value += this.value;
+  }
+
+  function handleClickAc() {
+    $input.value = '';
+  }
+
+  function isLastItemAnOperation(number) {
+    var operations = ['+', '-', '*', '/', '%'];
+    var lastItem = number.split('').pop();
+    return operations.some(function(operator) {
+      return operator === lastItem;
+    });
+  }
+
+  function removeLastItemIfItIsAnOperator(number) {
+    if(isLastItemAnOperation(number)) {
+      return number.slice(0, -1);
+    }
+    return number;
+  }
+
+  function handleClickResult() {
+    $input.value = removeLastItemIfItIsAnOperator($input.value);
+    var allValues = $input.value.match(/\d+[+\*\/-]?/g);
+    $input.value = allValues.reduce(function(accumulated, actual) {
+      var firstValue = accumulated.slice(0, -1);
+      var operator = accumulated.split('').pop();
+      var lastValue = removeLastItemIfItIsAnOperator(actual);
+      var lastOperator = isLastItemAnOperation(actual) ? actual.split('').pop() : '';
+      switch(operator) {
+        case '+':
+          return ( Number(firstValue) + Number(lastValue) ) + lastOperator;
+        case '-':
+          return ( Number(firstValue) - Number(lastValue) ) + lastOperator;
+        case '*':
+          return ( Number(firstValue) * Number(lastValue) ) + lastOperator;
+        case '/':
+          return ( Number(firstValue) / Number(lastValue) ) + lastOperator;
+        case '%':
+          return ( Number(firstValue) % Number(lastValue) ) + lastOperator;
+      }
+    });
+  }
+
+  $deleteDel.addEventListener(
     "click",
     function () {
-      resultado = [];
-      arrNumbers = [];
-      arrOperators = [];
-      total = '';
-      $input.value = '';
+      $input.value = $input.value.slice(0, -1);
     },
     false
   );
-
-  $deleteDel.addEventListener('click', function() {
-    $input.value = $input.value.slice(0, -1);
-    arrNumbers.pop();
-  }, false);
-})();
+})(window, document);
