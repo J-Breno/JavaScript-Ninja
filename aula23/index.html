@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="desafio-semana-23.js" defer></script>
+        <link rel="stylesheet" href="style.css">
+        <script type="module" src="">
+            import * as math from 'https://cdn.jsdelivr.net/npm/mathjs@9.4.4/dist/math.esm.min.mjs';</script>
+    </head>
+
+    <body>
+
+        <main class="main">
+            <label for="input-calculator"></label>
+            <input data-js="input-calculator" type="text" name="input-calculator" id="input-calculator">
+            <button data-js="delete-ac" class="button blue" id="ac" value="ac">AC</button>
+            <button data-js="delete-del" class="button blue" id="del" value="del">DEL</button>
+            <button data-js="operators" class="button blue" id="mod" value="%">%</button>
+            <button data-js="operators" class="button blue" id="division" value="/">/</button>
+            <button data-js="numbers" class="button" id="seven" value="7">7</button>
+            <button data-js="numbers" class="button" id="eight" value="8">8</button>
+            <button data-js="numbers" class="button" id="nine" value="9">9</button>
+            <button data-js="operators" class="button blue" id="mult" value="*">*</button>
+            <button data-js="numbers" class="button" id="fuor" value="4">4</button>
+            <button data-js="numbers" class="button" id="five" value="5">5</button>
+            <button data-js="numbers" class="button" id="six" value="6">6</button>
+            <button data-js="operators" class="button blue" id="sub" value="-">-</button>
+            <button data-js="numbers" class="button" id="one" value="1">1</button>
+            <button data-js="numbers" class="button" id="two" value="2">2</button>
+            <button data-js="numbers" class="button" id="three" value="3">3</button>
+            <button data-js="operators" class="button blue" id="sum" value="+">+</button>
+            <button data-js="numbers" class="button" id="zero" value="0">0</button>
+            <button data-js="result" class="button blue-dark" id="equals" value="=">=</button>
+        </main>
+    </body>
+
+</html>
