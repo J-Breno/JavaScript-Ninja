@@ -1,0 +1,5 @@
+NÃO UTILIZE EVENTOS INLINE
+
+o false no addEventListener vai dizer como vai ser a captura de eventos, se eu colocar como false, que é o padrão dele, ele já assume como padrão que é false, mas em alguns navgadores se você não passar vai da um erro, dizendo que falta um parâmetro; o nome dele é useCapture = se ele tiver como true ele vai começar a trelar os eventos apartir do pai, até chegar no filho, já com o false ele faz o caminho contrário
+
+os eventos são cumulativos, pois ele vai fazer todos os eventos, mesmo que tenha varios eventos no mesmo elemento
