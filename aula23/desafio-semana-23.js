@@ -45,12 +45,12 @@
   $result.addEventListener("click", handleClickResult, false);
 
   function handleClickNumber() {
-    $input.value += this.value;
+    $input.value += this.value; // -
   }
 
   function handleClickOperation() {
-    $input.value = removeLastItemIfItIsAnOperator($input.value);
-    $input.value += this.value;
+    $input.value = removeLastItemIfItIsAnOperator($input.value); //-
+    $input.value += this.value; // -
   }
 
   function handleClickAc() {
@@ -73,9 +73,9 @@
   }
 
   function handleClickResult() {
-    $input.value = removeLastItemIfItIsAnOperator($input.value);
+    $input.value = removeLastItemIfItIsAnOperator($input.value); //-
     var allValues = $input.value.match(/\d+[+\*\/-]?/g);
-    $input.value = allValues.reduce(function(accumulated, actual) {
+    $input.value = allValues.reduce(function(accumulated, actual) { // aqui
       var firstValue = accumulated.slice(0, -1);
       var operator = accumulated.split('').pop();
       var lastValue = removeLastItemIfItIsAnOperator(actual);
@@ -94,6 +94,8 @@
       }
     });
   }
+
+  
 
   $deleteDel.addEventListener(
     "click",
