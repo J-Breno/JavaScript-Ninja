@@ -53,12 +53,12 @@
     
 
   function handleClickNumber() {
-    $input.value += this.value;
+    $input.value += this.value; // -
   }
 
   function handleClickOperation() {
-    $input.value = removeLastItemIfItIsAnOperator($input.value);
-    $input.value += this.value;
+    $input.value = removeLastItemIfItIsAnOperator($input.value); //-
+    $input.value += this.value; // -
   }
 
   function handleClickAc() {
@@ -120,7 +120,29 @@
       case '%':
         return  Number( firstValue ) % Number( lastValue ) ;
     }
+    $input.value = removeLastItemIfItIsAnOperator($input.value); //-
+    var allValues = $input.value.match(/\d+[+\*\/-]?/g);
+    $input.value = allValues.reduce(function(accumulated, actual) { // aqui
+      var firstValue = accumulated.slice(0, -1);
+      var operator = accumulated.split('').pop();
+      var lastValue = removeLastItemIfItIsAnOperator(actual);
+      var lastOperator = isLastItemAnOperation(actual) ? actual.split('').pop() : '';
+      switch(operator) {
+        case '+':
+          return ( Number(firstValue) + Number(lastValue) ) + lastOperator;
+        case '-':
+          return ( Number(firstValue) - Number(lastValue) ) + lastOperator;
+        case '*':
+          return ( Number(firstValue) * Number(lastValue) ) + lastOperator;
+        case '/':
+          return ( Number(firstValue) / Number(lastValue) ) + lastOperator;
+        case '%':
+          return ( Number(firstValue) % Number(lastValue) ) + lastOperator;
+      }
+    });
   }
+
+  
 
   $deleteDel.addEventListener(
     "click",
