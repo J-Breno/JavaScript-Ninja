@@ -101,7 +101,7 @@
     var lastValue = removeLastItemIfItIsAnOperator(actual);
     var lastOperator = getLastOperator(actual);
     return doOperation(operator,firstValue, lastValue) + lastOperator;
-  }
+  } //
 
   function getLastOperator(value) {
    return isLastItemAnOperation(value) ? value.split('').pop() : '';
