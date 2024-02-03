@@ -1,1 +1,9 @@
 Uma biblioteca é um código que eu vou utilizar para que eu não precise ficar digitanto todas as vezes a mesma coisa
+
+document.createDocumentFragment() =  ele não tem parentNode; parentNode === null; pelo o que eu entendi o creacteDocumentFragment é tipo um bloco, que você pode adicionar coisas dentro dele, e ele é melhor de performace
+
+// Copiar arrays
+
+Array.prototype.slice
+
+A diferença do aplly para o call é que o call só que receber um único parâmetro de cada vez, já o apply espera receber uma lista
