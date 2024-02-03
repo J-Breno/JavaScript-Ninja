@@ -24,32 +24,49 @@
     */
   // ?
 
-  function DOM( tag ) {
-    this.element = document.querySelectorAll( tag );
-    this.on = function( event, func ){
-      Array.prototype.forEach.call(this.element, function(item) {
-        return item.addEventListener(event, func, false);
-      })
+  function DOM(elements) {
+    this.element = document.querySelectorAll(elements);
+    this.on = function (event, func) {
+      return adicionarUmListener(this.element, event, func);
     };
-    this.off = function(event, func) {
-      Array.prototype.forEach.call(this.element, function(item) {
-        return item.removeEventListener(event, func);
-      })
+    this.off = function (event, func) {
+      return removeUmListener(this.element, event, func);
     };
-    this.get = function() {
-      var $newArray = Array.prototype.map.call(this.element, function(item) {
-        return item;
-      })
-      return $newArray;
+    this.get = function () {
+      return retornaElementos(this.element);
     };
   }
 
+  function adicionarUmListener(nodeListTag, event, func) {
+    Array.prototype.forEach.call(nodeListTag, function (item) {
+      return item.addEventListener(event, func, false);
+    });
+  }
+
+  function removeUmListener(nodeListTag, event, func) {
+    Array.prototype.forEach.call(nodeListTag, function (item) {
+      return item.removeEventListener(event, func);
+    });
+  }
+
+  function retornaElementos(nodeListTag) {
+    var $newArray = Array.prototype.map.call(nodeListTag, function (item) {
+      return item;
+    });
+    return $newArray;
+  }
+
   var $a = new DOM('[data-js="link"]');
-  $a.on('click', function(e){
+  $a.on("click", function handleClick(e) {
     e.preventDefault();
-    console.log('clicou');
+    console.log("clicou");
+    var resultado = confirm('Desaja Excluir o evento? ')
+    if (resultado === true) {
+      $a.off("click", handleClick);
+    }
   });
 
-  console.log('Elementos selecionados:', $a.get());
-  console.log('$a é filho de body?', $a.get()[0].parentNode === document.body);
+
+  console.log("Elementos selecionados:", $a.get());
+  console.log("$a é filho de body?", $a.get()[0].parentNode === document.body);
 })();
