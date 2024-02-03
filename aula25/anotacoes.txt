@@ -1,0 +1,35 @@
+API DOM - DOM - Document Object Model - modelo do documento em formato de objeto
+
+document é o pai de todos
+
+.parentNode - vai pegar o nó que é pai, ou seja, o nó que é pai daquele nó que eu estou selecionando 
+
+.childNodes - vai trazer todos os nós que são filho do nó que eu estou procurando - ele traz as quebras de linha também, elas também são contadas como filhos
+
+.firstChild - primeiro filho
+.lastChild - último filho
+.nextSibling - ele mostra quem é o irmão
+.previusSibling - irmão anterior
+
+// traz somente os elementos e não trazem comentarios, espaços etc
+.children - não é padronizada - mas da para ser utilizada
+.firstElementChild - vai trazer o primeiro elemento filho 
+
+.hasAtribute(name) = vai olhar se algum elemento tem aquele elemento especifico
+.hasAtributes - verifica se tem qualquer atributo
+.appendChild(child) - ele adiciona um filho em um elemento, e você vai passar por parâmetro quem é esse elemento
+
+insertBefore(node, beforeWhow) - o que vai ser serido e antes de quem ele vai ser inseriod
+
+.cloneNode -    ele vai clonar tal elemento, e ele recebe true ou false, que é para saber se você também quer copair o conteúdo do seu elemento
+.hasChildNode() - vai verificar se o meu elemento tem algum filho
+
+.removeChild(child) - remove o filho de tal elemento
+
+.replaceChild(new, old) - vai substituir o o filho
+
+document.createTextNode(text) =  
+document.createElement(element)
+element.id
+getAttribute(attr) - pegar qualquer atributos
+.setAttribute(attr, value)
