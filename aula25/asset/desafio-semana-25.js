@@ -24,23 +24,32 @@
     */
   // ?
 
-     function DOM(tag) {
-         this.element = tag;
-         console.log(this)
-        // this.on = function(evetn, func) {
-          
-        // } 
-        }
+  function DOM( tag ) {
+    this.element = document.querySelectorAll( tag );
+    this.on = function( event, func ){
+      Array.prototype.forEach.call(this.element, function(item) {
+        return item.addEventListener(event, func, false);
+      })
+    };
+    this.off = function(event, func) {
+      Array.prototype.forEach.call(this.element, function(item) {
+        return item.removeEventListener(event, func);
+      })
+    };
+    this.get = function() {
+      var $newArray = Array.prototype.map.call(this.element, function(item) {
+        return item;
+      })
+      return $newArray;
+    };
+  }
 
   var $a = new DOM('[data-js="link"]');
-  var $p = document.querySelectorAll($a.element);
-  console.log($p)
-  console.log('oi')
-  // $a.on('click', function(e) {
-  //     e.preventDefault();
-  //     console.log('clicou');
-  // });
+  $a.on('click', function(e){
+    e.preventDefault();
+    console.log('clicou');
+  });
 
-  // console.log('Elementos selecionados:', $a.get());
-  // console.log('$a é filho de body?', $a.get()[0].parentNode === document.body);
+  console.log('Elementos selecionados:', $a.get());
+  console.log('$a é filho de body?', $a.get()[0].parentNode === document.body);
 })();
