@@ -1,0 +1,37 @@
+Introdução Ajax
+
+Asynchronous Javascript and XML = Javascript assicrono e XML
+
+Javascript assicrono = não deixa uma ação que demanda muito recurso bloquear sua thread principal, deixando ele em um Event Loop
+
+AJAX vai servir para fazer requisições na mesma origem, na mesma URL que eu estou, no mesmo dominio que eu estou, e essas requisições vão trazer informações sem que eu precise regarregar toda a tela, para trazer essa informações. Fazer com que você faça uma requisição assicrona, no meu servidor, ou em outro servidor que permita eu fazer essa requisição, e me traga uma resposta, e essa resposta pode ser um XML, documento de texto, html, json, pode ser qualquer coisa
+
+como pegar informações de um arquivo externo, dentro do nosso dominio, mas que não está na mesma página. como trazer informações e colocar ela dentro da nossa página atual
+
+window.XMLHttpRequest() -- esse objeto é um objeto do window que precisa ser instanciado para fazer a minha requisição AJAX
+
+var ajax = new XMLHttpRequest(); // primeiro devemos instanciar o objeto, como ele é um objeto do window eu não preciso colocar window.XMLHttpRequest(), pois o window é um objeto global
+
+ajax.open(<protocol>, <url>); // segunda coisa é abrir uma requisição, e vai dizir o tipo de protocolo e a url que iremos acessar, os protocolos que eu posso usar(get, put, delete,post, option), qualquer protocolo http valido, contando que o navegador que eu estou utilizando suporte, e o servidor onde eu estou enviando essa requisição suporte, eu posso mandar qualquer protocolo, mas principalmente que vão funcionar para qualquer tipo de navegador/servidor são get e post
+
+o get serve para obter informações - então eu vou enviar um get para algum lugar e eu vou receber a informação de lá, e a url que eu vou passar que eu vou obter a informação
+
+ajax.send(<data>); //terceiro passo enviar os dados para o servidor, se tiverem dados
+
+fazendo o get para buscar informações
+
+como mainupa esses dados? as informações que retornam para nós do servidor
+
+Evento onreadystatechange = ele vai ver quando o estado dessa requisição mudou e ele vai responder para gente
+
+readyState - verifica o estado atual
+
+0: não enviando
+1: conexão aberta
+2: Headers recebidos - os cabeçalhos do html
+3: carregando o corpo do request
+4: concluido a requisição com sucesso
+HTTP status
+
+tratamento de erros
+
