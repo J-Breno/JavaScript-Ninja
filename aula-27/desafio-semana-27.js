@@ -1,8 +1,7 @@
-(function(win, doc) {
+(function (win, doc) {
+  "use strict";
 
-    'use strict';
-
-        /*
+  /*
     No HTML:
     - Crie um formulário com um input de texto que receberá um CEP e um botão
     de submit;
@@ -29,58 +28,69 @@
     - Utilize a lib DOM criada anteriormente para facilitar a manipulação e
     adicionar as informações em tela.
     */
-   var request = doc.querySelector('[data-js="request"] p')
-    var $getCep = doc.querySelector('[data-js="getCep"]');
-    var $button = doc.querySelector('[data-js="button-submit"]');
-    var $inputLogadouro = doc.querySelector('[data-js="logadouro"]');
-    var $inputBairro = doc.querySelector('[data-js="bairro"]');
-    var $inputEstado = doc.querySelector('[data-js="cidade"]');
-    var $inputCidade = doc.querySelector('[data-js="cidade"]');
-    var $setCep = doc.querySelector('[data-js="setGet"]');
+  var request = doc.querySelector('[data-js="request"] p');
+  var $getCep = doc.querySelector('[data-js="getCep"]');
+  var $button = doc.querySelector('[data-js="button-submit"]');
+  var $inputLogadouro = doc.querySelector('[data-js="logadouro"]');
+  var $inputBairro = doc.querySelector('[data-js="bairro"]');
+  var $inputEstado = doc.querySelector('[data-js="estado"]');
+  var $inputCidade = doc.querySelector('[data-js="cidade"]');
+  var $setCep = doc.querySelector('[data-js="setCep"]');
 
+  $button.addEventListener("click", enviaCep, false);
 
-    $button.addEventListener('click', enviaCep, false);
+  function enviaCep(e) {
+    e.preventDefault();
+    limpaCep();
+  }
 
-    function enviaCep(e) {
-        e.preventDefault();
-        limpaCep();
-    }
+  function limpaCep() {
+    var cep = " ";
+    cep = $getCep.value;
+    cep = cep.match(/\w+/gi).join("");
+    $getCep.value = cep;
+    verificandoAjax(cep);
+  }
 
-    function limpaCep() {
-        var cep = '';
-        cep = $getCep.value;
-        cep = cep.match(/\w+/g).join('');
-        verificandoAjax(cep);
-    }
+  function verificandoAjax(cep) {
+    if (cep.length != 8) {
+      console.log("Erro");
+    } else {
+      var ajax = new XMLHttpRequest();
+      ajax.open("GET", `https://viacep.com.br/ws/${cep}/json/`);
+      ajax.send(null);
+      ajax.addEventListener("readystatechange", function () {
+        if (
+          ajax.readyState === 1 ||
+          ajax.readyState === 2 ||
+          ajax.readyState === 3
+        ) {
+          // LEMBREte !!! isso aqui tem que ser evidado, pois quando o cep vem invalido ele entrada aqui de qualquer jeito
+          request.innerText = `Buscando Informações para o CEP: ${cep}`;
+          console.log(ajax.readyState, ajax.status);
+          console.log("oi");
+        }
 
-    function verificandoAjax(cep) {
-        var ajax = new XMLHttpRequest();
-        ajax.open('GET', `https://viacep.com.br/ws/${cep}/json/` );
-        ajax.send(null);
-        ajax.addEventListener('readystatechange', function() {
-            if(ajax.readyState === 1 || ajax.readyState === 2 || ajax.readyState === 3) { // LEMBREte !!! isso aqui tem que ser evidado, pois quando o cep vem invalido ele entrada aqui de qualquer jeito
-                request.innerText = `Buscando Informações para o CEP: ${cep}`;
-            } 
-            if(ajax.readyState === 4 && ajax.status === 404) {
-                request.innerText = `Não encontramos o endereço para o CEP: ${cep}`;
+        if (isRequestOk(ajax)) {
+          setTimeout(function () {
+            if (JSON.parse(ajax.responseText).erro != true) {
+              request.innerText = `Endereço referente ao CEP: ${cep}`;
+              $inputBairro.value = JSON.parse(ajax.responseText).bairro;
+              $inputLogadouro.value = JSON.parse(ajax.responseText).logradouro;
+              $inputEstado.value = JSON.parse(ajax.responseText).uf;
+              $inputCidade.value = JSON.parse(ajax.responseText).localidade;
+              $setCep.value = JSON.parse(ajax.responseText).cep;
+              console.log("ola");
+            } else {
+              request.innerText = `Não encontramos o endereço para o CEP : ${cep}.`;
             }
-            try{
-                throw new Error(`Não encontramos o endereço para o CEP: ${cep}`); // throw serve para mostrar um erro  
-                }
-                catch(e) { // o e é o nosso objeto de error
-                 request.innerText = e; 
-                }  
-            if(isRequestOk(ajax)){
-                console.log(JSON.parse(ajax.responseText).bairro)
-            }
-        })
+          }, 3000);
+        }
+      });
     }
+  }
 
-    function isRequestOk(ajax) {
-        return ajax.readyState === 4 && ajax.status === 200;
-    }
-
-   
-
-
+  function isRequestOk(ajax) {
+    return ajax.readyState === 4 && ajax.status === 200;
+  }
 })(window, document);
