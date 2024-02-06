@@ -111,28 +111,32 @@
   var $cidade = new DOM('[data-js="cidade"]');
   var $cep = new DOM('[data-js="setCep"]');
   var $status = new DOM('[data-js="status"]');
+  var $input = new DOM('input');
   $formCEP.on("submit", handleSubmitFormCEP);
+  
 
   function handleSubmitFormCEP(event) {
     event.preventDefault();
-    if($inputCEP.get()[0].value.length != 8) {
-      $logradouro.get()[0].value = '-';
-      $bairro.get()[0].value = '-';
-      $estado.get()[0].value = '-';
-      $cidade.get()[0].value = '-';
-      $cep.get()[0].value = '-';
-      return getMessage('errorLength'), clearData();
-      
-    }
-    else {
-    var url = getUrl();
-    ajax.open("GET", url);
-    ajax.send();
-    getMessage('loading');
+    if (
+      $inputCEP.get()[0].value.length != 8 ||
+      $inputCEP.get()[0].value === ""
+    ) {
+      $logradouro.get()[0].value = "-";
+      $bairro.get()[0].value = "-";
+      $estado.get()[0].value = "-";
+      $cidade.get()[0].value = "-";
+      $cep.get()[0].value = "-";
+      errorInput();
+      getMessage("errorLength");
+      clearData();
+      return;
+    } else {
+      var url = getUrl();
+      ajax.open("GET", url);
+      ajax.send();
+      getMessage("loading");
       ajax.addEventListener("readystatechange", handleReadyStateChange);
-
     }
-    
   }
 
   function getUrl() {
@@ -140,17 +144,19 @@
   }
 
   function clearCEP() {
-    return $inputCEP.get()[0].value.replace(/\D/g, "")
+    return $inputCEP.get()[0].value.replace(/\D/g, "");
   }
 
   function handleReadyStateChange() {
-    setInterval(function() {
-    
-    if (isRequestOk()){
-      getMessage('ok');
-      fillCEPFields();
-    }
-  },3000);
+    setTimeout(function () {
+      if (isRequestOk()) {
+        getMessage("ok");
+        fillCEPFields();
+        $input.forEach((item) => {
+          item.classList.remove('error')
+        })
+      }
+    }, 3000);
   }
 
   function isRequestOk() {
@@ -158,32 +164,42 @@
   }
 
   function fillCEPFields() {
+    setTimeout(function() {
     var data = parceData();
-    
-    if (!data){
-      getMessage('error');
-      data = clearData();
-    }
+      if (!data) {
+        getMessage("error");
+        data = clearData();
+        errorInput();
+      }
+
     $logradouro.get()[0].value = data.logradouro;
     $bairro.get()[0].value = data.bairro;
     $estado.get()[0].value = data.uf;
     $cidade.get()[0].value = data.localidade;
     $cep.get()[0].value = data.cep;
+  }, 3000)
+
+  }
+
+  function errorInput() {
+    $input.forEach(item => {
+      item.classList.add('error');
+    });
   }
 
   function clearData() {
     return {
-      logradouro: '-',
-      bairro: '-',
-      uf: '-',
-      localidade: '-',
-      cep: '-'
-    }
+      logradouro: "-",
+      bairro: "-",
+      uf: "-",
+      localidade: "-",
+      cep: "-",
+    };
   }
 
   function parceData() {
     var result;
-    if(JSON.parse(ajax.responseText).erro != true) {
+    if (JSON.parse(ajax.responseText).erro !== "true") {
       result = JSON.parse(ajax.responseText);
     } else {
       result = null;
@@ -197,7 +213,7 @@
       loading: `Buscando informações para o CEP: ${cep}...`,
       ok: `Endereço referente ao CEP: ${cep}.`,
       error: `Não encontramos o endereço para o CEP: ${cep}.`,
-      errorLength: "Por favor digite um cep de 8 digitios"
+      errorLength: "Por favor digite um cep de 8 digitios",
     };
     $status.get()[0].textContent = messages[type];
   }

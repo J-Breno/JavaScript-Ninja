@@ -22,65 +22,100 @@ body {
 div.main {
   color: #afb6c2;
   background-color: #24221f;
-  height: 400px;
-  width: 550px;
+  height: 500px;
+  width: 620px;
   border-radius: 10px;
   display: grid;
   grid-template-rows: 15% 15% 1fr;
+  box-shadow: 1px 1px 20px 5px #555;
+}
+
+div.status {
+  padding: 8px 12px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+
+  & h1 {
+    padding: 0;
+    color: #ffc632;
+    font-size: 25px;
+  }
+}
+
+form.form-cep {
+  display: grid;
+  padding: 8px 1px 8px 12px;
+  grid-template-columns: 70% 30%;
+
+  & input#getCep {
+    width: 100%;
+  }
+
+  & button[type="submit"] {
+    margin: 0 auto;
+    align-self: center;
+    border: none;
+    height: 40px;
+    width: 140px;
+    border-radius: 5px;
+    background-color: #ffc632;
+    color: #473404;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+  & button:hover {
+    background-color: #deac2b;
+  }
+  & button:active {
+    background-color: #b78c1e;
+  }
+}
+input#getCep {
+  width: 70%;
+}
+input {
+  border-radius: 8px;
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  font-size: 1.6rem;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+  border: 3px solid #ffc632;
+}
+input.error {
+  outline: none;
+  border: 2px solid #f00;
 }
 
 div.cep-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
 }
 
 div.logradouro {
   padding: 8px 12px;
-
-  & input {
-    border-radius: 8px;
-    width: 100%;
-    height: 25px;
-  }
 }
 
 div.estado {
   padding: 8px 12px;
-
-  & input {
-    border-radius: 8px;
-    width: 100%;
-    height: 25px;
-  }
 }
 
 div.bairro {
   padding: 8px 12px;
-
-  & input {
-    border-radius: 8px;
-    width: 100%;
-    height: 25px;
-  }
 }
 
 div.cidade {
   padding: 8px 12px;
-
-  & input {
-    border-radius: 8px;
-    width: 100%;
-    height: 25px;
-  }
 }
 div.setCep {
   padding: 8px 12px;
   grid-row: 3;
   grid-column: 1 / 3;
-
-  & input {
-    border-radius: 8px;
-    width: 100%;
-    height: 25px;
-  }
 }
