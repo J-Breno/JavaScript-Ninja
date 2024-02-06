@@ -5,32 +5,43 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <script src="/aula-27/desafio-semana-27.js" defer></script>
+        <script src="/aula-27/assets/js/desafio-semana-27.js" defer></script>
+        <link rel="stylesheet" href="/aula-27/assets/css/style.css">
     </head>
 
     <body>
         <div class="main">
-            <div data-js="request" class="request">
-                <p></p>
+            <div  class="status">
+                <p data-js="status">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt eius quibusdam impedit. Expedita laborum autem tenetur porro distinctio nostrum ullam eum soluta, quos natus non aliquid voluptas vel fugiat velit.</p>
             </div>
-            <form action="">
+            <form data-js="form-cep" action="">
                 <label for="getCep">CEP: </label>
                 <input data-js="getCep" type="text" name="getCep" id="getCep">
-                <button data-js="button-submit" type="submit">Enviar</button><br>
-                <label for="logradouro">Logradouro: </label>
-                <input data-js="logadouro" type="text" name="logradouro" id="logradouro"><br>
-                <label for="bairro">Bairro: </label>
-                <input data-js="bairro" type="text" name="bairro" id="bairro"><br>
-                <label for="estado">Estado: </label>
-                <input data-js="estado" data-js="estado" type="text" name="estado" id="estado"><br>
-                <label for="cidade">Cidade: </label>
-                <input data-js="cidade" type="text" name="cidade" id="cidade"><br>
-                <label for="setCep">CEP: </label>
-                <input data-js="setCep" type="text" name="setCep" id="setCep"><br>
+                <button data-js="button-submit" type="submit">Consultar CEP</button><br>
             </form>
-            
+            <div class="cep-info" data-js="cep-info">
+                <div class="logradouro">
+                    <label for="logradouro">Logradouro: </label><br>
+                    <input data-js="logradouro" type="text" name="logradouro" id="logradouro"><br>
+                </div>
+                <div class="bairro">
+                    <label for="bairro">Bairro: </label><br>
+                    <input data-js="bairro" type="text" name="bairro" id="bairro"><br>
+                </div>
+                <div class="estado">
+                    <label for="estado">Estado: </label><br>
+                    <input data-js="estado" data-js="estado" type="text" name="estado" id="estado"><br>
+                </div>
+                <div class="cidade">
+                    <label for="cidade">Cidade: </label><br>
+                    <input data-js="cidade" type="text" name="cidade" id="cidade"><br>
+                </div>
+                <div class="setCep">
+                    <label for="setCep">CEP: </label><br>
+                    <input data-js="setCep" type="text" name="setCep" id="setCep"><br>
+                </div>
+            </div>
         </div>
-
     </body>
 
 </html>
