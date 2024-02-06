@@ -35,3 +35,5 @@ HTTP status
 
 tratamento de erros
 
+/clousers - sempre que você cria uma função no Javascript, ela cria um contexto. é nocaso uma função que tem acesso tanto o que tem dentro dela quanto o que está fora, tem acesso global e gaurda os valores para ela
+
