@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;700&family=Ubuntu&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  font-family: "Jakarta Sans", Arial, Helvetica, sans-serif;
+}
+p,
+a {
+  color: rgba(98, 100, 118, 1);
+}
+main.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.picture {
+  width: 100%;
+  height: 100vh;
+  background-image: url("/aula-28/img/bg-estrelas.jpeg");
+  background-repeat: no-repeat;
+  background-position: right;
+  color: #fdfdff;
+  text-shadow: 0px 5px 6px rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: auto;
+  transition: background-position 1s;
+  animation: slide 90s linear forwards alternate-reverse;
+  animation-iteration-count: infinite;
+
+  & h2 {
+    font-size: 4.16rem;
+  }
+  & p {
+    font-size: 2.4rem;
+    color: #fdfdff;
+  }
+}
+
+@keyframes slide {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+div.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+div.logo {
+  margin-bottom: 30px;
+}
+form.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 53.7rem;
+  height: 67.2rem;
+
+  & input {
+    height: 3.7rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    width: 100%;
+    border: 1px solid rgba(204, 204, 204, 1);
+    margin: 0 0 1rem 0;
+    &.error {
+    border: 2px solid rgb(227, 0, 0);
+
+    }
+  }
+  & button {
+    width: 100%;
+    height: 5.5rem;
+
+    &.submit {
+      margin-bottom: 10px;
+      background: linear-gradient(
+        90deg,
+        rgba(11, 157, 202, 1),
+        rgba(0, 183, 188, 1)
+      );
+      border: none;
+      border-radius: 5px;
+    }
+    &.login-google {
+      margin-top: 20px;
+      margin-bottom: 25px;
+      font-size: 1.6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      justify-self: center;
+      background-color: transparent;
+      border: 1px solid rgba(234, 234, 234, 1);
+      border-radius: 5px;
+      position: relative;
+    }
+    &.login-google:hover {
+      color: rgba(11, 157, 202, 1);
+    }
+    &.login-google::before {
+      content: "";
+      display: inline-block;
+      width: 100px;
+      margin: auto 0;
+      height: 50px;
+      background-image: url("/aula-28/img/google.svg");
+      background-repeat: no-repeat;
+      background-size: 30px;
+      padding-right: 20px;
+      position: absolute;
+      top: 10px;
+      left: 150px;
+    }
+    &.submit:hover {
+      background: linear-gradient(
+        180deg,
+        rgba(11, 157, 202, 1),
+        rgba(0, 183, 188, 1)
+      );
+    }
+  }
+  span.inscreva {
+    color: rgba(11, 157, 202, 1);
+  }
+  span:hover {
+    cursor: pointer;
+  }
+
+  & div#h3 {
+    display: flex;
+    width: 100%;
+
+    & h3 {
+      font-size: 1.8rem;
+      margin-block: 1.8rem;
+    }
+  }
+
+  & a.esqueci-pass {
+    font-size: 1.6rem;
+    cursor: pointer;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: end;
+    margin-left: 370px;
+    cursor: pointer;
+  }
+  & a.esqueci-pass:hover {
+    color: rgba(11, 157, 202, 1);
+  }
+  p.login-alternative {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  & p.login-alternative::after {
+    content: "";
+    display: inline-block;
+    width: 35%;
+    height: 1px;
+    margin-bottom: 3px;
+    background-color: rgba(98, 100, 118, 1);
+    margin-left: 10px;
+  }
+  & p.login-alternative::before {
+    content: "";
+    margin-right: 10px;
+    margin-bottom: 3px;
+    display: inline-block;
+    width: 35%;
+    height: 1px;
+    background-color: rgba(98, 100, 118, 1);
+  }
+
+  & button.submit {
+    color: rgba(255, 255, 255, 1);
+  }
+
+  & p.mensage-error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 82, 82);
+    color: rgb(103, 14, 14);
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 100%;
+    height: 30px;
+  }
+  & p.mensage-acert {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(99, 255, 82);
+    color: rgb(14, 103, 14);
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 100%;
+    height: 30px;
+  }
+}
