@@ -9,5 +9,5 @@
     function isValidEmail(email) {
         return email.match(/^\-?\w+?\.?\w+[\.|\_|\+|]?\w+?[^\_|^\.^\+^\-]\@\w+\.\w\w+(\.\w\w)?/gim)
     }
-    console.log(isValidEmail('joão@hotmail.com'))
+    console.log(isValidEmail('joao@hotmail.com'))
 })();

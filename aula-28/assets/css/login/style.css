@@ -66,6 +66,16 @@ div.login {
 div.logo {
   margin-bottom: 30px;
 }
+form.login.none {
+  display: none;
+  transition: 0.3s;
+}
+
+form.none {
+  display: none;
+  transition: 0.4s;
+}
+
 form.login {
   display: flex;
   flex-direction: column;
@@ -73,6 +83,39 @@ form.login {
   align-items: center;
   width: 53.7rem;
   height: 67.2rem;
+  & div.userNameResponse-none {
+    display: none;
+  }
+  & div.userNameResponse-error {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 82, 82);
+    color: rgb(103, 14, 14);
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 35px;
+    transition: 0.5s;
+  }
+  & div.userNameResponse-acert {
+    text-align: center;
+    background-color: rgb(99, 255, 82);
+    color: rgb(14, 103, 14);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 35px;
+    transition: 0.5s;
+  }
 
   & input {
     height: 3.7rem;
@@ -81,11 +124,100 @@ form.login {
     width: 100%;
     border: 1px solid rgba(204, 204, 204, 1);
     margin: 0 0 1rem 0;
-    &.error {
-    border: 2px solid rgb(227, 0, 0);
 
+    &.error-email {
+      outline: none;
+      border: 2px solid rgb(227, 0, 0);
+    }
+    &.acert-email {
+      outline: none;
+      border: 2px solid rgb(83, 227, 0);
+    }
+    &.error-pass {
+      outline: none;
+      border: 2px solid rgb(227, 0, 0);
+    }
+    &.acert-pass {
+      outline: none;
+      border: 2px solid rgb(83, 227, 0);
+    }
+    &.error-pass-confirm {
+      outline: none;
+      border: 2px solid rgb(227, 0, 0);
+    }
+    &.acert-pass-confirm {
+      outline: none;
+      border: 2px solid rgb(83, 227, 0);
+    }
+
+    &.confirme-senha_off {
+      background-repeat: no-repeat;
+      background-position: 400px;
+    }
+    &.senha-cadastro_off {
+      background-repeat: no-repeat;
+      background-position: 500px;
+    }
+
+    &.confirme-senha {
+      background-image: url("/aula-28/img/visibility.svg");
+      background-repeat: no-repeat;
+      background-position: 500px;
+    }
+    &.senha-cadastro {
+      background-image: url("/aula-28/img/visibility.svg");
+      background-repeat: no-repeat;
+      background-position: 500px;
     }
   }
+  & img.senha-login_off {
+    position: absolute;
+    z-index: 1;
+    top: 285px;
+    right: 130px;
+    cursor: pointer;
+  }
+  & img.senha-login {
+    position: absolute;
+    z-index: 1;
+    top: 285px;
+    right: 130px;
+    cursor: pointer;
+  }
+
+  & img.senha-cadastro_off {
+    position: absolute;
+    z-index: 1;
+    top: 308px;
+    right: 130px;
+    cursor: pointer;
+  }
+  & img.confirme-senha_off {
+    position: absolute;
+    z-index: 1;
+    top: 354px;
+    right: 127px;
+    cursor: pointer;
+  }
+  & img.senha-cadastro {
+    background-image: url("/aula-28/img/visibility.svg");
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 1;
+    top: 308px;
+    right: 130px;
+    cursor: pointer;
+  }
+  & img.confirme-senha {
+    position: absolute;
+    background-image: url("/aula-28/img/visibility.svg");
+    background-repeat: no-repeat;
+    z-index: 1;
+    top: 354px;
+    right: 127px;
+    cursor: pointer;
+  }
+
   & button {
     width: 100%;
     height: 5.5rem;
@@ -138,10 +270,10 @@ form.login {
       );
     }
   }
-  span.inscreva {
+  a.inscreva {
     color: rgba(11, 157, 202, 1);
   }
-  span:hover {
+  a:hover {
     cursor: pointer;
   }
 
@@ -151,7 +283,7 @@ form.login {
 
     & h3 {
       font-size: 1.8rem;
-      margin-block: 1.8rem;
+      margin-block: 1.8rem 1rem;
     }
   }
 
@@ -194,29 +326,50 @@ form.login {
   & button.submit {
     color: rgba(255, 255, 255, 1);
   }
+}
+div.none {
+  display: none;
+  transition: 0.5s;
+}
+div.mensage-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  background-color: rgb(255, 82, 82);
+  color: rgb(103, 14, 14);
+  font-size: 1.6rem;
+  font-weight: bold;
+  border-radius: 5px;
+  width: 550px;
+  height: 50px;
+  position: absolute;
+  z-index: 1;
+  top: 15px;
+  transition: 0.5s;
+  left: 400px;
+}
+div.mensage-acert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(99, 255, 82);
+  color: rgb(14, 103, 14);
+  font-size: 1.6rem;
+  font-weight: bold;
+  border-radius: 5px;
+  width: 500px;
+  height: 50px;
+  position: absolute;
+  z-index: 1;
+  top: 15px;
+  transition: 0.5s;
+  left: 400px;
+}
 
-  & p.mensage-error {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(255, 82, 82);
-    color: rgb(103, 14, 14);
-    font-size: 1.6rem;
-    font-weight: bold;
-    border-radius: 5px;
-    width: 100%;
-    height: 30px;
-  }
-  & p.mensage-acert {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(99, 255, 82);
-    color: rgb(14, 103, 14);
-    font-size: 1.6rem;
-    font-weight: bold;
-    border-radius: 5px;
-    width: 100%;
-    height: 30px;
-  }
+button,
+a {
+  cursor: pointer;
 }

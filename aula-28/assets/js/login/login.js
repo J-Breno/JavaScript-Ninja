@@ -1,44 +1,70 @@
-(function(win, doc) {
-    'use strict';
-  
-    /*
-    Vamos estruturar um pequeno app utilizando módulos.
-    Nosso APP vai ser um cadastro de carros. Vamos fazê-lo por partes.
-    A primeira etapa vai ser o cadastro de veículos, que deverá funcionar da
-    seguinte forma:
-    - No início do arquivo, deverá ter as informações da sua empresa - nome e
-    telefone (já vamos ver como isso vai ser feito)
-    - Ao abrir a tela, ainda não teremos carros cadastrados. Então deverá ter
-    um formulário para cadastro do carro, com os seguintes campos:
-      - Imagem do carro (deverá aceitar uma URL)
-      - Marca / Modelo
-      - Ano
-      - Placa
-      - Cor
-      - e um botão "Cadastrar"
-  
-    Logo abaixo do formulário, deverá ter uma tabela que irá mostrar todos os
-    carros cadastrados. Ao clicar no botão de cadastrar, o novo carro deverá
-    aparecer no final da tabela.
-  
-    Agora você precisa dar um nome para o seu app. Imagine que ele seja uma
-    empresa que vende carros. Esse nosso app será só um catálogo, por enquanto.
-    Dê um nome para a empresa e um telefone fictício, preechendo essas informações
-    no arquivo company.json que já está criado.
-  
-    Essas informações devem ser adicionadas no HTML via Ajax.
-  
-    Parte técnica:
-    Separe o nosso módulo de DOM criado nas últimas aulas em
-    um arquivo DOM.js.
-  
-    E aqui nesse arquivo, faça a lógica para cadastrar os carros, em um módulo
-    que será nomeado de "app".
-    */
+(function (win, doc, DOM) {
+  "use strict";
 
-    function app() {
+  const $inputLogin = new DOM('[data-js="email-login"]');
+  const $passLogin = new DOM('[data-js="pass-login"]');
+  const $btnLogin = new DOM('[data-js="btn-login"]');
+  const $responseLogin = new DOM('[data-js="resposta-cadastro"]');
+  const $imgPass = new DOM('[data-js="img-pass-login"]');
 
+  var lista = localStorage.getItem("listUser");
+  var jsonLista = JSON.parse(lista);
+
+
+  $btnLogin.on("click", validacaoDoCadastramentoLogin);
+  $imgPass.on("click", handleClickImgPass);
+  $passLogin.on('keyup', keyupPassLogin)
+  $inputLogin.on('keyup', keyupPassLogin)
+
+  function keyupPassLogin() {
+    $inputLogin.get()[0].classList.remove('error-email')
+    $passLogin.get()[0].classList.remove('error-pass')
+  }
+
+  function validacaoDoCadastramentoLogin(e) {
+    e.preventDefault();
+    jsonLista.forEach((item, index, array) => {
+      if(array[index].emailForm === $inputLogin.get()[0].value) {
+
+      if (
+        item.emailForm === $inputLogin.get()[0].value &&
+        item.passForm === $passLogin.get()[0].value
+      ) {
+        window.location.href = "/aula-28/html/cadastro_veiculo/cadastro.html";
+      } 
+    }else {
+      $inputLogin.get()[0].classList.add('error-email')
+       $passLogin.get()[0].classList.add("error-pass");
+
+
+    $responseLogin.forEach((item) => {
+      item.classList.remove("none");
+      item.classList.add("mensage-error");
+      item.innerText =
+        "Email ou Senha inválidos";
+      setTimeout(function () {
+        item.classList.add("none");
+        item.classList.remove("mensage-error");
+        item.innerText = "";
+      }, 5000);
+    });
+  }
+
+    });
+  
+  }
+
+  function handleClickImgPass() {
+    if ($imgPass.get()[0].classList.contains("senha-login_off")) {
+      $imgPass.get()[0].setAttribute("src", "/aula-28/img/visibility.svg");
+      $imgPass.get()[0].classList.remove("senha-login_off");
+      $imgPass.get()[0].classList.add("senha-login");
+      $passLogin.get()[0].type = "text";
+    } else {
+      $imgPass.get()[0].setAttribute("src", "/aula-28/img/visibility_off.svg");
+      $imgPass.get()[0].classList.remove("senha-login");
+      $imgPass.get()[0].classList.add("senha-login_off");
+      $passLogin.get()[0].type = "password";
     }
-  
-    app();
-  })(window, document);
+  }
+})(window, document, window.DOM);
