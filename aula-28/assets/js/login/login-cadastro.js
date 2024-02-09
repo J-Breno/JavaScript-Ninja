@@ -14,8 +14,6 @@
   const $entreLogin = new DOM("a.inscreva");
   const textH2 = new DOM(".text h2");
   const textP = new DOM(".text p");
-  
-  
 
   let isEmailValid = "";
   let isPassValid = "";
@@ -32,29 +30,45 @@
   $passConfirm.on("keyup", keyUpPassConfirm);
   $entreLogin.on("click", irParaLogin);
 
-  if(!$formCadastro.get()[0].classList.contains('none')) {
-    textH2.get()[0].innerHTML = "<h2>Olá! <br> Seja Bem-Vindo(a)!</h2>"
-    textP.get()[0].innerHTML = "<p>Faça Cadastro e venha ser Galáxia Motors:<br> A marca que leva você para as estrelas.</p>"
+  if (!$formCadastro.get()[0].classList.contains("none")) {
+    textH2.get()[0].innerHTML = "<h2>Olá! <br> Seja Bem-Vindo(a)!</h2>";
+    textP.get()[0].innerHTML =
+      "<p>Faça Cadastro e venha ser Galáxia Motors:<br> A marca que leva você para as estrelas.</p>";
   } else {
-    textH2.get()[0].innerHTML = "<h2>Olá! <br> Seja bem-vindo(a) de volta.</h2>"
-    textP.get()[0].innerHTML = "<p>Faça login para continuar acessando a página</p>"
-
+    textH2.get()[0].innerHTML =
+      "<h2>Olá! <br> Seja bem-vindo(a) de volta.</h2>";
+    textP.get()[0].innerHTML =
+      "<p>Faça login para continuar acessando a página</p>";
   }
 
   function irParaLogin(e) {
     e.preventDefault();
-    
+
     $formLogin.forEach((item2) => item2.classList.toggle("none"));
     $formCadastro.forEach((item3) => item3.classList.toggle("none"));
-    if(!$formCadastro.get()[0].classList.contains('none')) {
-      textH2.get()[0].innerHTML = "<h2>Olá! <br> Seja Bem-Vindo(a)!</h2>"
-      textP.get()[0].innerHTML = "<p>Faça Cadastro e venha ser Galáxia Motors:<br> A marca que leva você para as estrelas.</p>"
-    } else {
-      textH2.get()[0].innerHTML = "<h2>Olá! <br> Seja bem-vindo(a) de volta.</h2>"
-      textP.get()[0].innerHTML = "<p>Faça login para continuar acessando a página</p>"
+    $pass.get()[0].value = "";
+    $passConfirm.get()[0].value = "";
+    $emailCadastro.get()[0].value = "";
+    $nameCadastro.get()[0].value = "";
+    $passConfirm.get()[0].classList.remove("acert-pass");
+    $passConfirm.get()[0].classList.remove("error-pass");
+    $pass.get()[0].classList.remove("acert-pass");
+    $pass.get()[0].classList.remove("error-pass");
+    $emailCadastro.get()[0].classList.remove("error-email");
+    $emailCadastro.get()[0].classList.remove("acert-email");
+    $nameCadastro.get()[0].classList.remove("error-email");
+    $nameCadastro.get()[0].classList.remove("acert-email");
 
+    if (!$formCadastro.get()[0].classList.contains("none")) {
+      textH2.get()[0].innerHTML = "<h2>Olá! <br> Seja Bem-Vindo(a)!</h2>";
+      textP.get()[0].innerHTML =
+        "<p>Faça Cadastro e venha ser Galáxia Motors:<br> A marca que leva você para as estrelas.</p>";
+    } else {
+      textH2.get()[0].innerHTML =
+        "<h2>Olá! <br> Seja bem-vindo(a) de volta.</h2>";
+      textP.get()[0].innerHTML =
+        "<p>Faça login para continuar acessando a página</p>";
     }
- 
   }
 
   function keyUpPassConfirm() {
@@ -143,7 +157,6 @@
     $nameCadastro.forEach((item) => isNameValid(item));
 
     cadastroCompleto();
-
   }
 
   function isValidEmail(item) {
@@ -204,6 +217,10 @@
   }
 
   function cadastroCompleto() {
+    $passConfirm.get()[0].classList.remove("acert-pass");
+    $pass.get()[0].classList.remove("acert-pass");
+    $emailCadastro.get()[0].classList.remove("acert-email");
+    $nameCadastro.get()[0].classList.remove("acert-email");
     if (isEmailValid === true && passValid === true && nameValid === true) {
       let listUser = JSON.parse(localStorage.getItem("listUser")) || [];
 
@@ -232,6 +249,14 @@
       passValid === false &&
       nameValid === true
     ) {
+
+      $emailCadastro.get()[0].classList.add("acert-email");
+      $nameCadastro.get()[0].classList.add("acert-email");
+      $pass.get()[0].classList.remove("acert-pass");
+      $pass.get()[0].classList.add("error-pass");
+      $passConfirm.get()[0].classList.remove("acert-pass");
+      $passConfirm.get()[0].classList.add("error-pass");
+
       $respostaCadastro.forEach((item) => {
         item.classList.toggle("none");
         item.classList.toggle("mensage-error");
@@ -248,6 +273,17 @@
       passValid === false &&
       nameValid === false
     ) {
+      
+      $emailCadastro.get()[0].classList.add("acert-email");
+
+
+      $nameCadastro.get()[0].classList.remove("acert-email");
+      $nameCadastro.get()[0].classList.add("error-email");
+      $pass.get()[0].classList.remove("acert-pass");
+      $pass.get()[0].classList.add("error-pass");
+      $passConfirm.get()[0].classList.remove("acert-pass");
+      $passConfirm.get()[0].classList.add("error-pass");
+
       $respostaCadastro.forEach((item) => {
         item.classList.toggle("none");
         item.classList.toggle("mensage-error");
@@ -264,6 +300,14 @@
       passValid === true &&
       nameValid === false
     ) {
+      $passConfirm.get()[0].classList.add("acert-pass");
+      $pass.get()[0].classList.add("acert-pass");
+      $emailCadastro.get()[0].classList.add("acert-email");
+
+
+      $nameCadastro.get()[0].classList.remove("acert-email");
+      $nameCadastro.get()[0].classList.add("error-email");
+
       $respostaCadastro.forEach((item) => {
         item.classList.toggle("none");
         item.classList.toggle("mensage-error");
@@ -280,6 +324,13 @@
       passValid === true &&
       nameValid === true
     ) {
+      $passConfirm.get()[0].classList.add("acert-pass");
+      $pass.get()[0].classList.add("acert-pass");
+      $nameCadastro.get()[0].classList.add("acert-email");
+
+      $emailCadastro.get()[0].classList.remove("acert-email");
+      $emailCadastro.get()[0].classList.add("error-email");
+
       $respostaCadastro.forEach((item) => {
         item.classList.toggle("none");
         item.classList.toggle("mensage-error");
@@ -296,6 +347,14 @@
       passValid === true &&
       nameValid === false
     ) {
+      $passConfirm.get()[0].classList.add("acert-pass");
+      $pass.get()[0].classList.add("acert-pass");
+      
+      $emailCadastro.get()[0].classList.remove("acert-email");
+      $emailCadastro.get()[0].classList.add("error-email");
+      $nameCadastro.get()[0].classList.remove("acert-email");
+      $nameCadastro.get()[0].classList.add("error-email");
+
       $respostaCadastro.forEach((item) => {
         item.classList.toggle("none");
         item.classList.toggle("mensage-error");
@@ -312,6 +371,15 @@
       passValid === false &&
       nameValid === true
     ) {
+      $nameCadastro.get()[0].classList.add('acert-email')
+
+      $emailCadastro.get()[0].classList.remove("acert-email");
+      $emailCadastro.get()[0].classList.add("error-email");
+      $pass.get()[0].classList.remove("acert-pass");
+      $pass.get()[0].classList.add("error-pass");
+      $passConfirm.get()[0].classList.remove("acert-pass");
+      $passConfirm.get()[0].classList.add("error-pass");
+
       $respostaCadastro.forEach((item) => {
         item.classList.toggle("none");
         item.classList.toggle("mensage-error");
@@ -324,6 +392,17 @@
         }, 5000);
       });
     } else {
+      $pass.get()[0].classList.remove("acert-pass");
+      $pass.get()[0].classList.add("error-pass");
+      $emailCadastro.get()[0].classList.remove("acert-email");
+      $emailCadastro.get()[0].classList.add("error-email");
+      $nameCadastro.get()[0].classList.remove("acert-email");
+      $nameCadastro.get()[0].classList.add("error-email");
+      $nameCadastro.get()[0].classList.remove("acert-email");
+      $nameCadastro.get()[0].classList.add("error-email");
+      $passConfirm.get()[0].classList.remove("acert-pass");
+      $passConfirm.get()[0].classList.add("error-pass");
+
       $respostaCadastro.forEach((item) => {
         item.classList.toggle("none");
         item.classList.toggle("mensage-error");
