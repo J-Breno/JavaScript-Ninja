@@ -6,7 +6,6 @@
   const $btnLogin = new DOM('[data-js="btn-login"]');
   const $responseLogin = new DOM('[data-js="resposta-cadastro"]');
   const $imgPass = new DOM('[data-js="img-pass-login"]');
-
   var lista = localStorage.getItem("listUser");
   var jsonLista = JSON.parse(lista);
 
