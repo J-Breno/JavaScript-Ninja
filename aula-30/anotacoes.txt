@@ -1,0 +1,48 @@
+Ajax 
+
+var ajax = new XMLHttpRequest();
+ajax.open('METOD HTTP', <URL>);
+ajax.send(<dada>);
+
+evento onreadystateschange
+ajax.readyState
+0 = não enviado
+1 = conexão aberta
+2 = Headers recebidos 
+3 = Carregando o corpo(body) do request
+4 = Concluído
+
+HTTP STATUS = 
+200 = Ok
+403 = não permitido
+404 = não encontrado
+500 = problema no servidor
+
+Manipulação de resposta
+ajax.responseText
+
+ajax.responseXML 
+
+Como isso funciona isso no lado do servidor?
+
+Exemplo de Rest Api com Express
+
+REST API - é uma api de backend que ela responde através de URL e métodos HTTP
+
+pode também utilizar um terceiro parametro no ajax.open
+
+não utilize ela, ela bloqueia a thread principal
+
+ajax.abort() = ele vai abortar o ajax
+
+método post - enviar dados para o servidor
+
+ajax.setRequestHeader(
+    'Content-Type',
+    'application/x-www-form-urlencoded'
+);
+
+ajax.send('key1=value1');
+ /*
+    'key1=value1&key2=value2'
+ */
