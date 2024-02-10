@@ -1,0 +1,10 @@
+innerHTML = o innerHTML é tanto um set quanto o get, o innerHTMLvem em forma de string, isso no getter
+
+devdocs.io - estudo por ai. é uma boa documentação
+
+closures = é quando uma função "lembra" seu escopo léxico, mesmo quando a função é executada fora desse escopo léxico
+
+escopo léxico = é o escopo onde a função foi definida
+
+uma clousres no caso = são funcões que tem acesso as variáveis ou funções do seu pai, da função pai
+
